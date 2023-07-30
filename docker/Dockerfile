@@ -9,3 +9,6 @@ RUN sed -i 's!/var/www/html!/var/www/app/public!g' /etc/apache2/sites-available/
 RUN apt-get update
 RUN apt-get -y install libzip-dev
 RUN docker-php-ext-install zip
+
+RUN cd /etc/apache2/mods-enabled \
+    && ln -s ../mods-available/rewrite.load
